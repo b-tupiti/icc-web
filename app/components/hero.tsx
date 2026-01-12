@@ -24,18 +24,13 @@ function Hero() {
   return (
     <header id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-[#050505]">
       
-      {/* 1. TECHNICAL BACKGROUND - Blueprint Grid */}
+      {/* 1. BACKGROUND GLOW (Replacing Mesh) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[#050505]" />
         <div 
-          className="absolute inset-0" 
-          style={{ 
-            backgroundImage: `
-              linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(255,255,255,0.07) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
-          }} 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] opacity-20 blur-[120px]"
+          style={{
+            background: 'radial-gradient(circle, #e5811f 0%, transparent 70%)',
+          }}
         />
       </div>
 
@@ -55,14 +50,12 @@ function Hero() {
             style={{ 
               transform: 'translateX(33%)', 
               objectFit: 'contain',
-              filter: 'brightness(0.5)' 
+              filter: 'brightness(0.4)' // Slightly darker to let glow stand out
             }}
           />
           
-          {/* HEAVY DARK OVERLAY */}
           <div className="absolute inset-0 z-20 bg-black/20 pointer-events-none" />
           
-          {/* VIGNETTE GRADIENT (Makes it even darker on the left edge) */}
           <div 
             className="absolute inset-0 z-21 pointer-events-none" 
             style={{
@@ -70,8 +63,6 @@ function Hero() {
             }}
           />
         </div>
-
-        
       </div>
 
       {/* 3. CONTENT INTERFACE */}
