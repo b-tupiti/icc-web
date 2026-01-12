@@ -24,16 +24,16 @@ function Footer() {
             Connect with us
           </span>
           <h2 className="text-5xl md:text-8xl font-extralight tracking-tighter leading-none uppercase">
-            Let's build <br /> 
+            Let&apos;s build <br /> 
             <span className="font-medium">Something Lasting.</span>
           </h2>
           
           <div className="pt-12">
             <a 
-              href="mailto:office@icc.com.sb" 
+              href="mailto:hello@icc.com.sb" 
               className="group text-2xl md:text-4xl font-light tracking-tight hover:text-[#e5811f] transition-colors duration-500 flex items-center gap-6"
             >
-              office@icc.com.sb
+              hello@icc.com.sb
               <span className="h-[1px] w-12 bg-white/20 group-hover:w-24 group-hover:bg-[#e5811f] transition-all duration-500"></span>
             </a>
           </div>
