@@ -6,11 +6,14 @@ import engImg from '../../public/images/a-building-out-in-the-sunshine.jpeg';
 function Services() {
   const containerRef = useRef(null);
   
-  // Track scroll progress of the entire section
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
+
+  // Animated background movement for the subtle orange glow
+  const bgX = useTransform(scrollYProgress, [0, 1], ["20%", "80%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["10%", "90%"]);
 
   const services = [
     {
@@ -44,15 +47,25 @@ function Services() {
   ];
 
   return (
-    /* 1. THE TRACK: 400vh gives enough room for 4 services to scroll through */
-    <div ref={containerRef} className="relative h-[400vh] bg-[#fcfcfc]">
+    /* 1. Main Container with Radial Gradient */
+    <div 
+      ref={containerRef} 
+      className="relative h-[400vh] bg-[#fffaf5]"
+      style={{
+        backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(229, 129, 31, 0.05) 0%, rgba(255, 250, 245, 1) 100%)'
+      }}
+    >
       
-      {/* 2. THE STICKY VIEWPORT: Stays fixed while user scrolls the track */}
       <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden">
         
+        {/* 2. Animated Background Glow - This makes the orange more apparent but still subtle */}
+        <motion.div 
+          style={{ left: bgX, top: bgY }}
+          className="absolute w-[600px] h-[600px] bg-[#e5811f]/10 blur-[120px] rounded-full -z-10"
+        />
+
         <div className="max-w-7xl mx-auto px-6 w-full relative h-[600px]">
           
-          {/* Section Header - remains visible */}
           <div className="absolute top-0 left-0 z-50">
             <p className="text-[#e5811f] font-mono text-[10px] font-bold tracking-[0.4em] uppercase mb-2">
               Capabilities
@@ -62,9 +75,7 @@ function Services() {
             </h2>
           </div>
 
-          {/* 3. THE MAPPING: Each service is layered on top of each other */}
           {services.map((service, idx) => {
-            // Logic to determine when each card fades in/out
             const start = idx * 0.25;
             const end = (idx + 1) * 0.25;
             
@@ -88,7 +99,8 @@ function Services() {
                     alt={service.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/10 transition-colors hover:bg-transparent" />
+                  {/* Subtle overlay on images to pull in the orange theme */}
+                  <div className="absolute inset-0 bg-orange-900/5 transition-colors hover:bg-transparent" />
                 </div>
 
                 {/* Content Block */}
@@ -104,8 +116,8 @@ function Services() {
                   </p>
                   
                   <div className="flex flex-wrap gap-3">
-                    {service.items.map((item, i) => (
-                      <div key={i} className="flex items-center gap-2 bg-white border border-gray-100 px-4 py-2 rounded-full shadow-sm">
+                    {services[idx].items.map((item, i) => (
+                      <div key={i} className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-orange-100 px-4 py-2 rounded-full shadow-sm">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#e5811f]" />
                         <span className="text-[10px] font-black uppercase tracking-widest text-gray-600">{item}</span>
                       </div>

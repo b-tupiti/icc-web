@@ -28,7 +28,7 @@ function Navbar() {
   const navLinks = [
     { name: "Solutions", href: "#solutions", id: "solutions" },
     { name: "Projects", href: "#projects", id: "projects" },
-    { name: "About Us", href: "#process", id: "process" },
+    { name: "Process", href: "#process", id: "process" },
   ];
 
   return (
