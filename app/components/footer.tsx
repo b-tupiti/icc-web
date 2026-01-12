@@ -87,13 +87,22 @@ function Footer() {
 
       {/* Bottom Bar: Clean Metadata */}
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 pt-8 relative z-10">
-        <div className="flex gap-8 text-[9px] font-mono text-gray-600 uppercase tracking-widest">
+        <div className="flex flex-wrap justify-center md:justify-start gap-8 text-[9px] font-mono text-gray-600 uppercase tracking-widest">
           <span>© {currentYear} ICC Global</span>
           <span className="hover:text-white cursor-pointer transition-colors">Privacy</span>
           <span className="flex items-center gap-2">
             <div className="w-1 h-1 rounded-full bg-green-500/50"></div>
             System Active
           </span>
+          {/* Credit on the left, non-italicized */}
+          <a 
+            href="https://rebays.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-700 hover:text-gray-400 transition-colors"
+          >
+            Built by Rebays
+          </a>
         </div>
 
         <button 
