@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import workerImage from '../../public/images/worker-checking-his-work.jpeg';
 
 function Hero() {
   const hasJumped = useRef(false);
@@ -47,7 +48,7 @@ function Hero() {
       >
         <div className="relative w-full h-full">
           <Image 
-            src="/images/worker-checking-his-work.jpeg" 
+            src={workerImage}
             alt="Engineering Detail"
             fill
             priority
