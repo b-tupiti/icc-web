@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Required for static export
+  output: 'export',
+  // Replace 'your-repo-name' with your actual repository name
+  basePath: '/icc-web', 
+  // This ensures CSS/JS/Images are prefixed correctly
+  assetPrefix: '/icc-web/', 
   images: {
-    unoptimized: true, // GitHub Pages doesn't support the Next.js Image Optimization API
+    unoptimized: true,
   },
 };
 
