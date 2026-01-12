@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ideal Conceptz & Construction",
+  title: "ICC",
   description: "Beyond Structures. Engineering Excellence Est. 2024",
 };
 
